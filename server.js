@@ -4,6 +4,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth'); // Import the auth routes
+const loginRoutes = require('./routes/login-route');  // Import the auth routes
+const userRoutes = require('./routes/user');  // Import the auth routes
 
 // Initialize express app
 const app = express();
@@ -24,6 +26,8 @@ app.get('/', (req, res) => {
 
 // Use auth routes
 app.use('/api', authRoutes);
+app.use('/api', loginRoutes);
+app.use('/api', userRoutes);
 
  // Start server
 const PORT = process.env.PORT || 5000;
